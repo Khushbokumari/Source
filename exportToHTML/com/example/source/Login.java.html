@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>Login.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008000; font-weight: bold;}
+.s3 { color: #808080; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Login.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.example.source;
+
+<span class="s0">import </span>androidx.annotation.NonNull;
+<span class="s0">import </span>androidx.appcompat.app.AppCompatActivity;
+
+<span class="s0">import </span>android.content.Intent;
+<span class="s0">import </span>android.os.Bundle;
+<span class="s0">import </span>android.view.Menu;
+<span class="s0">import </span>android.view.View;
+<span class="s0">import </span>android.widget.Button;
+<span class="s0">import </span>android.widget.TextView;
+<span class="s0">import </span>android.widget.Toast;
+
+<span class="s0">import </span>com.google.android.material.textfield.TextInputLayout;
+<span class="s0">import </span>com.google.firebase.database.DataSnapshot;
+<span class="s0">import </span>com.google.firebase.database.DatabaseError;
+<span class="s0">import </span>com.google.firebase.database.DatabaseReference;
+<span class="s0">import </span>com.google.firebase.database.FirebaseDatabase;
+<span class="s0">import </span>com.google.firebase.database.Query;
+<span class="s0">import </span>com.google.firebase.database.ValueEventListener;
+
+
+<span class="s0">public class </span>Login <span class="s0">extends </span>AppCompatActivity {
+
+    @Override
+    <span class="s0">protected void </span>onCreate(Bundle savedInstanceState) {
+        <span class="s0">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        Loginbtn=findViewById(R.id.login);
+        username_var=findViewById(R.id.username_text_field_design);
+        password_var=findViewById(R.id.password_text_field_design);
+        signup.setOnClickListener(<span class="s0">new </span>View.OnClickListener() {
+            @Override
+            <span class="s0">public void </span>onClick(View view) {
+                Intent intent=<span class="s0">new </span>Intent(getApplicationContext(),Signup.<span class="s0">class</span>);
+                startActivity(intent);
+            }
+        });
+        forget.setOnClickListener(<span class="s0">new </span>View.OnClickListener() {
+            @Override
+            <span class="s0">public void </span>onClick(View view) {
+                Intent intent=<span class="s0">new </span>Intent(getApplicationContext(),Forget.<span class="s0">class</span>);
+                startActivity(intent);
+            }
+        });
+        Loginbtn.setOnClickListener(<span class="s0">new </span>View.OnClickListener() {
+            @Override
+            <span class="s0">public void </span>onClick(View view) {
+                String username_=username_var.getEditText().getText().toString();
+                String password_=password_var.getEditText().getText().toString();
+                <span class="s0">if</span>(!username_.isEmpty())
+                {
+                    username_var.setError(<span class="s0">null</span>);
+                    username_var.setErrorEnabled(<span class="s0">false</span>);
+                    <span class="s0">if</span>(!password_.isEmpty())
+                    {
+                        password_var.setError(<span class="s0">null</span>);
+                        password_var.setErrorEnabled(<span class="s0">false</span>);
+                        <span class="s0">final </span>String username_data=username_var.getEditText().getText().toString();
+                        <span class="s0">final </span>String password_data=password_var.getEditText().getText().toString();
+                        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+                        DatabaseReference databaseReference=firebaseDatabase.getReference(<span class="s2">&quot;datauser&quot;</span>);
+                        Query check_username=databaseReference.orderByChild(<span class="s2">&quot;username&quot;</span>).equalTo(username_data);
+                        check_username.addListenerForSingleValueEvent(<span class="s0">new </span>ValueEventListener() {
+                            @Override
+                            <span class="s0">public void </span>onDataChange(@NonNull DataSnapshot snapshot) {
+                                <span class="s0">if</span>(snapshot.exists())
+                                {
+                                    username_var.setError(<span class="s0">null</span>);
+                                    username_var.setErrorEnabled(<span class="s0">false</span>);
+                                    String passwordcheck=snapshot.child(username_data).child(<span class="s2">&quot;password&quot;</span>).getValue(String.<span class="s0">class</span>);
+                                    <span class="s0">if </span>(passwordcheck.equals(password_data)){
+                                        password_var.setError(<span class="s0">null</span>);
+                                        password_var.setErrorEnabled(<span class="s0">false</span>);
+                                        Toast.makeText(getApplicationContext(), <span class="s2">&quot;Login Successfully&quot;</span>, Toast.LENGTH_SHORT).show();
+                                        Intent intent=<span class="s0">new </span>Intent(getApplicationContext(),Dashboard.<span class="s0">class</span>);
+                                    }
+                                    <span class="s0">else</span>{
+                                        password_var.setError(<span class="s2">&quot;wrong password&quot;</span>);
+                                    }
+
+                                }<span class="s0">else</span>
+                                {
+                                    username_var.setError(<span class="s2">&quot;user does not exit&quot;</span>);
+                                }
+                            }
+
+                            @Override
+                            <span class="s0">public void </span>onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                    <span class="s0">else </span>{
+                        password_var.setError(<span class="s2">&quot;please enter the password&quot;</span>);
+                    }
+
+
+                }
+                <span class="s0">else</span>{
+                    username_var.setError(<span class="s2">&quot;please enter the user name&quot;</span>);
+                }
+
+            }
+        });
+
+
+
+    }
+
+   <span class="s3">/* @Override 
+    public boolean onCreateOptionsMenu(Menu menu) { 
+        getMenuInflater().inflate(R.menu.activity_login,menu); 
+        return true; 
+ 
+    } 
+    public void serve(View v) 
+    { 
+        Intent i=new Intent(); 
+        i.setClass(this,Second.class); 
+        startActivity(i); 
+    } 
+ 
+    public void complain(View v) 
+    { 
+        Intent in=new Intent(); 
+        in.setClass(this,Third.class); 
+        startActivity(in); 
+    } 
+ 
+    public void feed(View v) 
+    { 
+        Intent inn=new Intent(); 
+        inn.setClass(this,Fourth.class); 
+        startActivity(inn); 
+    }*/</span>
+    TextInputLayout username_var,password_var;
+    TextView signup,forget;
+
+    Button Loginbtn;
+
+   <span class="s3">/* public void signupbuttononclick(View view) { 
+        Intent intent=new Intent(getApplicationContext(),Login.class); 
+        startActivity(intent); 
+        finish(); 
+    }*/</span>
+}</pre>
+</body>
+</html>

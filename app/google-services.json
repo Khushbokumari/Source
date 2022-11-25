@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "405438401907",
+    "project_id": "employees-status-60443",
+    "storage_bucket": "employees-status-60443.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405438401907:android:7e12178f667eb1040fc906",
+        "android_client_info": {
+          "package_name": "com.example.source"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405438401907-51f9guepeehmf6ec6s1starj67ehu0k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwvn6kRWQnj4trrg90LdBmfnLEevvIRk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405438401907-51f9guepeehmf6ec6s1starj67ehu0k7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405438401907:android:2e6d72c20d5b13ec0fc906",
+        "android_client_info": {
+          "package_name": "com.sourcemonq.attendanceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405438401907-51f9guepeehmf6ec6s1starj67ehu0k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwvn6kRWQnj4trrg90LdBmfnLEevvIRk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405438401907-51f9guepeehmf6ec6s1starj67ehu0k7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

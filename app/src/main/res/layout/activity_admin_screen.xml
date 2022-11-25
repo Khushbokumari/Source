@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin_screen"
+    android:background="@color/white"
+    android:padding="5dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="419dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="5dp"
+            android:foregroundGravity="top"
+            android:src="@drawable/logo">
+
+        </ImageView>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="526dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:layout_width="391dp"
+            android:layout_height="508dp"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="155dp"
+                android:layout_height="114dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/users" />
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="75dp"
+                android:fontFamily="@font/archivo_black"
+
+                android:paddingBottom="15dp"
+                android:text="Add / Remove Employee"
+                android:textAlignment="center"
+                android:textColor="@color/purple_700"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="157dp"
+                android:layout_height="114dp"
+                android:layout_alignBottomRight="@id/image"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/attendancesystem" />
+
+            <TextView
+                android:layout_width="159dp"
+                android:layout_height="58dp"
+                android:layout_below="@id/image1"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/archivo_black"
+                android:paddingBottom="15dp"
+                android:text="View  Attendance"
+                android:textAlignment="center"
+                android:textColor="@color/purple_700"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="145dp"
+                android:layout_height="104dp"
+                android:layout_alignBottomRight="@id/image"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="198dp"
+                android:layout_marginEnd="230dp"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/at3" />
+
+            <TextView
+                android:layout_width="145dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/image"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="189dp"
+                android:layout_marginEnd="230dp"
+                android:fontFamily="@font/archivo_black"
+                android:paddingBottom="15dp"
+                android:text="Empolyee Records"
+                android:textAlignment="center"
+                android:textColor="@color/purple_700"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="148dp"
+                android:layout_height="100dp"
+                android:layout_alignBottomRight="@id/image"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="198dp"
+                android:layout_marginEnd="42dp"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/at4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="47dp"
+                android:layout_below="@id/image1"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="189dp"
+                android:layout_marginEnd="38dp"
+                android:fontFamily="@font/archivo_black"
+                android:text="Leave Request"
+                android:textAlignment="center"
+                android:textColor="@color/purple_700"
+                android:textSize="19sp" />
+
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="113dp"
+                android:layout_height="105dp"
+                android:layout_alignBottomRight="@id/image"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:layout_marginTop="355dp"
+                android:layout_marginEnd="149dp"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/folders" />
+
+            <TextView
+                android:layout_width="116dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/image1"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="350dp"
+                android:layout_marginEnd="149dp"
+                android:fontFamily="@font/archivo_black"
+                android:text="Worksheet"
+                android:textAlignment="center"
+                android:textColor="@color/purple_700"
+                android:textSize="17sp" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
